@@ -21,11 +21,11 @@ M.setup = function(options)
 end
 
 M.runner = function(arg)
-local options = require("sketch.nvim").options;
+local options = require("sketch").options;
   if arg == "new" then
-  require("sketch.nvim.file").new(options)
+  require("sketch.file").new(options)
   elseif arg == "run" then
-    require("sketch.nvim.runner").run_code(options)
+    require("sketch.runner").run_code(options)
   else
     vim.api.nvim_err_write("Invalid argument for Runner. Use 'new' or 'run'.\n")
   end
