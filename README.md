@@ -12,7 +12,16 @@ Sketch.nvim is a lightweight plugin for Neovim that simplifies code execution. I
 
 ## Installation
 
-TODO
+[lazy.nvim](https://github.com/folke/lazy.nvim)
+
+```lua
+  {
+    'serrexlabs/sketch.nvim',
+    config = function()
+      require("sketch").setup({})
+    end
+  }
+```
 
 ## Usage
 
