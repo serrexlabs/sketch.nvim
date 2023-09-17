@@ -3,7 +3,7 @@ Table of Contents                                                  *sketch.nvim*
 
 Introduction ············································· |sketch.introduction|
 Setup ··························································· |sketch.setup|
-Commands ······························································ |sketch|
+Commands ······························································ |Sketch|
 
 ==============================================================================
 Introduction                                               *sketch.introduction*
@@ -63,7 +63,7 @@ M.setup({options})                                                     *M.setup*
 
 
 ==============================================================================
-Commands                                                                *sketch*
+Commands                                                                *Sketch*
 
  The `:Sketch new` command is used to create a new sketch.
  The `:Sketch run` command executes the code in the current buffer.
