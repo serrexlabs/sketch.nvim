@@ -13,27 +13,32 @@ M.new = function(options)
   local language_choices = {}
   local choice_map = {} -- Map choice numbers to filetypes
 
-  for i, lang in ipairs(preferred_languages) do
-    for _, filetype in ipairs(filetypes) do
-      if lang == filetype.name then
-        table.insert(filtered_filetypes, filetype)
-        choice_map[filetype.name] = i
-        break
+  if #preferred_languages > 0 then
+    for i, lang in ipairs(preferred_languages) do
+      for _, filetype in ipairs(filetypes) do
+        if lang == filetype.name then
+          table.insert(filtered_filetypes, filetype)
+          choice_map[filetype.name] = i
+          break
+        end
       end
     end
-  end
 
-  if #filtered_filetypes == 0 then
-    print("No preferred languages found in the options.")
-    return
-  end
+    if #filtered_filetypes == 0 then
+      print("No preferred languages found in the options.")
+      return
+    end
 
-  -- Sort the filtered filetypes based on the order of preferred languages
-  table.sort(filtered_filetypes, function(a, b)
-    local choice_a = choice_map[a.name] or 0
-    local choice_b = choice_map[b.name] or 0
-    return choice_a < choice_b
-  end)
+    -- Sort the filtered filetypes based on the order of preferred languages
+    table.sort(filtered_filetypes, function(a, b)
+      local choice_a = choice_map[a.name] or 0
+      local choice_b = choice_map[b.name] or 0
+      return choice_a < choice_b
+    end)
+  else
+    -- If no preferred languages are specified, include all filetypes
+    filtered_filetypes = filetypes
+  end
 
   for i, filetype in ipairs(filtered_filetypes) do
     local choice_number = i

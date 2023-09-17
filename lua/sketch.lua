@@ -9,7 +9,7 @@ local default_options = {
   },
   strategy = "term",
   custom_strategy = nil,
-  preferred_languages = { "typescript","rust"}
+  preferred_languages = {}
 }
 
 M.options = default_options
