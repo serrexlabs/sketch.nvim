@@ -1,9 +1,9 @@
 local M = {}
 
 M.run_code = function(options)
-  local command_options = require("sketch.nvim.command")
+  local command_options = require("sketch.command")
   local filetype = vim.bo.filetype
-  local strategy = require("sketch.nvim.strategies")
+  local strategy = require("sketch.strategies")
   local current_buffer_path = vim.fn.expand('%:p')
 
 
