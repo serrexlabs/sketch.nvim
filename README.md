@@ -6,6 +6,11 @@ Simplify code execution in Neovim. Run and test code snippets effortlessly in va
 
 Sketch.nvim is a lightweight plugin for Neovim that simplifies code execution. It allows you to run and test code snippets in various programming languages without leaving the Neovim environment. This can significantly enhance your coding workflow by providing a seamless way to experiment with code, test algorithms, and quickly see the results.
 
+
+https://github.com/serrexlabs/sketch.nvim/assets/4918600/0e173233-44c4-4c20-a6fb-49ad9cec2558
+
+
+
 ## Installation
 
 TODO
