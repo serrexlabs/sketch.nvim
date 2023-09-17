@@ -1,3 +1,12 @@
+---@toc sketch.nvim
+
+---@divider
+---@mod sketch.introduction Introduction
+---@brief [[
+---Simplify code execution in Neovim. 
+---Run and test code snippets effortlessly in
+---various languages, enhancing your coding workflow
+---@brief ]]
 local M = {}
 
 local default_options = {
@@ -14,9 +23,23 @@ local default_options = {
 
 M.options = default_options
 
+---@mod sketch.setup Setup
+---@param options table configuration options:
+--- * {executables} (table) optional
+---   Allows to configure the executable command of the language
+---   @usage `executables = {
+---    typescript = { "bun run", "deno", "ts-node" },
+---    rust = "rustc",
+---    lua = "lua",
+---    python = "python"
+---  }`
+--- * {strategy} (string) optional
+---   In which env this command should execute, right now it support 'term'
+
 M.setup = function(options)
   M.options = vim.tbl_deep_extend("force", default_options, options)
 
+---@mod sketch command
   vim.cmd('command! -nargs=? Sketch lua require"sketch".runner(<q-args>)')
 end
 

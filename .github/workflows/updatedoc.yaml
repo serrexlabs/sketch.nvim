@@ -1,4 +1,4 @@
-name: lemmy-help
+name: docgen
 
 on: [push]
 
@@ -8,7 +8,7 @@ env:
 jobs:
   docs:
     runs-on: ubuntu-latest
-    name: emmylua to vimdoc
+    name: Generate doc
     steps:
       - uses: actions/checkout@v2
 
