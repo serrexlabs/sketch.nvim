@@ -1,5 +1,38 @@
-M.setup()                                                              *M.setup*
+==============================================================================
+Table of Contents                                                  *sketch.nvim*
 
+Introduction ············································· |sketch.introduction|
+Setup ··························································· |sketch.setup|
+command ······························································· |sketch|
+
+==============================================================================
+Introduction                                               *sketch.introduction*
+
+Simplify code execution in Neovim. 
+Run and test code snippets effortlessly in
+various languages, enhancing your coding workflow
+
+==============================================================================
+Setup                                                             *sketch.setup*
+
+M.setup({options})                                                     *M.setup*
+
+    Parameters: ~
+        {options}  (table)  configuration options:
+                             * {executables} (table) optional
+                               Allows to configure the executable command of the language
+                               @usage `executables = {
+                                typescript = { "bun run", "deno", "ts-node" },
+                                rust = "rustc",
+                                lua = "lua",
+                                python = "python"
+                              }`
+                             * {strategy} (string) optional
+                               In which env this command should execute, right now it support 'term'
+
+
+==============================================================================
+command                                                                 *sketch*
 
 M.runner()                                                            *M.runner*
 
