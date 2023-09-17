@@ -69,7 +69,7 @@ M.options = default_options
 M.setup = function(options)
   M.options = vim.tbl_deep_extend("force", default_options, options)
 
----@mod sketch Commands
+---@mod Sketch Commands
 ---@brief [[
 --- The `:Sketch new` command is used to create a new sketch.
 --- The `:Sketch run` command executes the code in the current buffer.
