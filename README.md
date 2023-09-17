@@ -1,71 +1,82 @@
-=============================================================================
-Table of Contents *sketch.nvim*
+# Sketch.nvim
 
-Introduction ·············································
-\|sketch.introduction\| Setup
-···························································
-\|sketch.setup\| Commands
-······························································
-\|sketch\|
+Simplify code execution in Neovim. Run and test code snippets effortlessly in various languages, enhancing your coding workflow.
 
-==============================================================================
-Introduction *sketch.introduction*
+## Introduction
 
-Simplify code execution in Neovim. Run and test code snippets
-effortlessly in various languages, enhancing your coding workflow
+Sketch.nvim is a lightweight plugin for Neovim that simplifies code execution. It allows you to run and test code snippets in various programming languages without leaving the Neovim environment. This can significantly enhance your coding workflow by providing a seamless way to experiment with code, test algorithms, and quickly see the results.
 
-==============================================================================
-Setup *sketch.setup*
+## Installation
 
-M.setup({options}) *M.setup*
+TODO
 
-    Parameters: ~
-        {options}  (table)  configuration options:
-                             * {executables} (table) optional
-                               Configuration for executable commands for specific
-                               languages. Each key represents a supported language,
-                               and the corresponding value can be a string specifying
-                               a single executable command or a table of executable
-                               commands for that language.
-                               Example:
-                               ```
-                               executables = {
-                                 typescript = { "bun run", "deno", "ts-node" },
-                                 rust = "rustc",
-                                 lua = "lua",
-                                 python = "python"
-                               }
-                               ```
+## Usage
 
-                             * {strategy} (string) optional
-                               Specifies the execution environment for the commands.
-                               Currently, only 'term' is supported as an environment.
+Sketch.nvim provides the following commands:
 
-                             * {custom_strategy} (function) optional
-                               A custom strategy function for executing commands. You
-                               can define your own execution strategy and pass it here.
-                               The function should take the command string as its
-                               argument.
-                               Example:
-                               ```lua
-                               custom_strategy = function(command)
-                                 -- Your custom logic here
-                                 print("Executing custom command:", command)
-                               end
-                               ```
+### `:Sketch new`
 
-                             * {preferred_languages} (table) optional
-                               A table of preferred languages in the order you want
-                               them to appear when choosing the language for code execution.
-                               If not specified, all supported languages will be available.
-                               Example:
-                               ```
-                               preferred_languages = { "typescript", "rust" }
-                               ```
+Use the `:Sketch new` command to create a new sketch. This command will prompt you to choose a programming language and then open a new buffer with the chosen file type. You can start writing and testing your code in the selected language right away.
 
-==============================================================================
-Commands *sketch*
+### `:Sketch run`
 
-The `:Sketch new` command is used to create a new sketch. The
-`:Sketch run` command executes the code in the current buffer.
+The `:Sketch run` command is used to execute the code in the current buffer. It will run the code based on the language associated with the buffer's file type. You can quickly test your code
+
+## Configuration
+
+Sketch.nvim supports various configuration options to customize its behavior. You can specify these options in your Neovim configuration file. Here's an example of configuring Sketch.nvim:
+
+```lua
+-- Configuration for Sketch.nvim
+require'sketch'.setup({
+  executables = {
+    typescript = { "bun run", "deno", "ts-node" },
+    rust = "rustc",
+    lua = "lua",
+    python = "python"
+  },
+  strategy = "term",
+  custom_strategy = nil,
+  preferred_languages = { "typescript", "rust" }
+})
+```
+
+### `executables`
+
+Configure executable commands for specific languages. You can specify a single executable command as a string or a table of executable commands for each supported language.
+
+Example:
+
+```lua
+executables = {
+  typescript = { "bun run", "deno", "ts-node" },
+  rust = "rustc",
+  lua = "lua",
+  python = "python"
+}
+```
+
+### strategy
+Define the environment in which commands should execute. Currently, only the "term" strategy is supported.
+
+```lua
+strategy = "term"
+```
+
+### custom_strategy
+You can specify a custom execution strategy by providing a function. For example:
+
+```lua
+custom_strategy = function(command, options)
+  -- Your custom execution logic here
+end
+```
+
+### preferred_languages
+Set your preferred languages for creating new sketches. Sketch.nvim will use these languages as options when creating a new sketch.
+
+```lua
+preferred_languages = { "typescript", "rust" }
+```
+
 
