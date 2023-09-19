@@ -3,7 +3,7 @@
 ---@divider
 ---@mod sketch.introduction Introduction
 ---@brief [[
----Simplify code execution in Neovim. 
+---Simplify code execution in Neovim.
 ---Run and test code snippets effortlessly in
 ---various languages, enhancing your coding workflow
 ---@brief ]]
@@ -26,7 +26,7 @@ M.options = default_options
 ---@mod sketch.setup Setup
 ---@param options table configuration options:
 --- * {executables} (table) optional
----   Configuration for executable commands for specific 
+---   Configuration for executable commands for specific
 ---   languages. Each key represents a supported language,
 ---   and the corresponding value can be a string specifying
 ---   a single executable command or a table of executable
@@ -42,13 +42,13 @@ M.options = default_options
 ---   ```
 ---
 --- * {strategy} (string) optional
----   Specifies the execution environment for the commands. 
+---   Specifies the execution environment for the commands.
 ---   Currently, only 'term' is supported as an environment.
 ---
 --- * {custom_strategy} (function) optional
 ---   A custom strategy function for executing commands. You
 ---   can define your own execution strategy and pass it here.
----   The function should take the command string as its 
+---   The function should take the command string as its
 ---   argument.
 ---   Example:
 ---   ```lua
@@ -59,7 +59,7 @@ M.options = default_options
 ---   ```
 ---
 --- * {preferred_languages} (table) optional
----   A table of preferred languages in the order you want 
+---   A table of preferred languages in the order you want
 ---   them to appear when choosing the language for code execution.
 ---   If not specified, all supported languages will be available.
 ---   Example:
@@ -74,7 +74,12 @@ M.setup = function(options)
 --- The `:Sketch new` command is used to create a new sketch.
 --- The `:Sketch run` command executes the code in the current buffer.
 ---@brief ]]
-  vim.cmd('command! -nargs=? Sketch lua require"sketch".runner(<q-args>)')
+  vim.api.nvim_create_user_command("Sketch",  function(args) M.runner(args.args) end, {
+    nargs = 1,
+    complete = function()
+      return {"new", "run"}
+    end
+  })
 end
 
 ---@private
