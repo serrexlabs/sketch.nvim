@@ -8,7 +8,7 @@ Commands ···································�
 ==============================================================================
 Introduction                                               *sketch.introduction*
 
-Simplify code execution in Neovim. 
+Simplify code execution in Neovim.
 Run and test code snippets effortlessly in
 various languages, enhancing your coding workflow
 
