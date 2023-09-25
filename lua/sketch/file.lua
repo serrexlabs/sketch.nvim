@@ -4,6 +4,7 @@ M.new = function(options)
   local preferred_languages = options.preferred_languages or {}
   local filetypes = {
     { name = "typescript", description = "TypeScript", extension = 'ts'},
+    { name = "javascript", description = "Javascript", extension = 'js'},
     { name = "rust",       description = "Rust", extension = 'rs' },
     { name = "lua",        description = "Lua", extension = 'lua' },
     { name = "python",     description = "Python", extension = 'py'},

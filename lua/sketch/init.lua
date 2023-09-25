@@ -14,7 +14,8 @@ local default_options = {
     typescript = { "bun run", "deno", "ts-node" },
     rust = "rustc",
     lua = "lua",
-    python = "python"
+    python = "python",
+    javascript = "node"
   },
   strategy = "term",
   custom_strategy = nil,
